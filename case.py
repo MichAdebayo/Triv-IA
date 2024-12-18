@@ -1,6 +1,12 @@
+import random
+
 class Case:
-    """Classe représentant une case du plateau."""
-    def __init__(self, couleur, categorie, camembert):
-        self.couleur = couleur
+    def __init__(self, categorie, position, type):
         self.categorie = categorie
-        self.camembert = camembert
+        self.position = position
+        self.type = type
+
+
+
+    
+
