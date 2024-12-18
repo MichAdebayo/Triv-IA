@@ -1,5 +1,6 @@
 from plateau import Plateau
 import random
+from joueur import Joueur
 import json
 
 class Jeu:
@@ -23,37 +24,20 @@ class Jeu:
 
         for i in range(int(nb_joueurs)):
 
-            nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
-
-            animaux = [
-                "🐱",  # Chat
-                "🐶",  # Chien
-                "🐻",  # Ours
-                "🐸",  # Grenouille
-                "🐯",  # Tigre
-                "🐧"   # Pingouin
-            ]
+            nom_du_joueur = input(f'saisissez le nom du joueur {i + 1} : ')
 
 
-            for i in range(int(nb_joueurs)):
+            emoji_joueur = random.choice(animaux)
+            animaux.remove(emoji_joueur)
+            print(f"vous êtes l'emoji {emoji_joueur}")
+            nouveau_joueur = Joueur(nom= nom_du_joueur)
+            self.joueurs.append([nouveau_joueur, emoji_joueur])
 
-                nom_du_joueur = input('saisissez le nom du joueur   ')
 
-
-                emoji_joueur = random.choice(animaux)
-                animaux.remove(emoji_joueur)
-                print(f"vous êtes l'emoji {emoji_joueur}")
-                self.joueurs.append([nom_du_joueur, emoji_joueur])
-
-    # def determiner_premier_joueur(self):
-    #     """Détermine le premier joueur (le plus jeune)."""
-    #     premier_joueur = min(self.joueurs, key=lambda joueur: joueur.age)
-    #     print(f"\n{premier_joueur.nom} commence le jeu !")
-    #     self.tour_actuel = self.joueurs.index(premier_joueur)
 
     def lancer_manche(self):
         """Exécute une manche du jeu."""
-        joueur = self.joueurs[self.tour_actuel]
+        joueur = self.joueurs[self.tour_actuel][0]
         print(f"\nC'est au tour de {joueur.nom} !")
 
         # Lancer le dé
@@ -62,54 +46,55 @@ class Jeu:
 
         # Déplacer le joueur
 
-        case = self.plateau.obtenir_case(joueur.position)
+        case = self.plateau.get_case(joueur.position)
         choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
-        if choix_mouvement != 'ar' or choix_mouvement != 'av':
+        if choix_mouvement != 'ar' and choix_mouvement != 'av':
             choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
-
-        if choix_mouvement == 'av':
-            joueur.position += resultat
         else:
-            choix_mouvement == 'ar'
-            joueur.position -= resultat
+            if choix_mouvement == 'av':
+                joueur.position += resultat
+            else:
+                choix_mouvement == 'ar'
+                joueur.position -= resultat
 
-        joueur.position = joueur.position % len(self.plateau.cases)
+        joueur.position = joueur.position % (len(self.plateau.cases))
+        print(joueur.position)
 
 
             
         print(f"{joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
 
-        # Poser une question
-        questions = self.questions_par_theme.get(case.couleur, [])
-        if questions:
-            question = random.choice(questions)
-            if question.poser():
-                print("Bonne réponse ! 🎉")
-                if  case.couleur not in joueur.camemberts:
-                    joueur.ajouter_camembert(case.couleur)
 
-                    # Vérifier si le joueur a gagné
-                    if joueur.a_tous_les_camemberts():
-                        print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
-                        return True
+        if self.poser(joueur.position):
+            print("Bonne réponse ! 🎉")
+            if  case.categorie not in joueur.camemberts and case.type == 'Camembert':
+                print('===============================================')
+                joueur.ajouter_camembert(case.categorie)
 
-                # Si bonne réponse, rejouer
-                print(f"{joueur.nom} rejoue !")
-                return False  # Le joueur continue de jouer
+                # Vérifier si le joueur a gagné
 
-            else:
-                print("Mauvaise réponse 😞.")
+                if joueur.a_tous_les_camemberts():
+                    print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
+                    return True
 
-        # Passer au joueur suivant
-        self.tour_actuel = (self.tour_actuel + 1) % len(self.joueurs)
-        return False
+            # Si bonne réponse, rejouer
+            print(f"{joueur.nom} rejoue !")
+            return False  # Le joueur continue de jouer
 
-    def poser(case_joueur):
+        else:
+            print("Mauvaise réponse 😞.")
+        
+            self.tour_actuel = (self.tour_actuel +1 ) % len(self.joueurs)
+            return False
+
+    def poser(self, case_joueur):
         """Pose la question au joueur et retourne s'il a répondu correctement."""
         with open('questions_trivial_pursuit.json', 'r') as files:
             question = json.load(files)
 
-        cat_question = case_joueur.categorie
+        case_actuelle = self.plateau.cases[case_joueur]
+        cat_question = self.plateau.cases[case_joueur].categorie
+        case_type = self.plateau.cases[case_joueur].type
         question_posee = random.choice(question[cat_question])
 
         print(f"\nQuestion ({cat_question}): {question_posee['question']}")
@@ -121,7 +106,8 @@ class Jeu:
             print("Entrée invalide. Réessayez.")
             choix = input("Votre réponse (numéro) : ")
 
-        return int(choix) - 1 == question_posee['bonne_reponse']  
+        return int(choix) - 1 == question_posee['bonne_reponse']
+
 
 
 
@@ -130,7 +116,19 @@ class Jeu:
         """Lance le jeu complet."""
         print("Bienvenue dans le jeu !")
         self.initialiser_joueurs()
-        self.charger_questions("/questions_trivial_pursuit.json")
-        self.determiner_premier_joueur()
-        while not self.lancer_manche():
-          pass
+        
+        while not self.lancer_manche():     
+            pass
+
+
+
+if __name__ == '__main__':
+    plateau_du_jeu = Plateau()
+
+
+    plateau_du_jeu.creation_cases()
+    plateau_du_jeu.creer_plateau()
+
+    partie = Jeu()
+    partie.lancer_jeu()
+    partie.lancer_manche()

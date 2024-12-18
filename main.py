@@ -8,4 +8,6 @@ clear = os.system('cls' if os.name == 'nt' else 'clear')
 
 plateau_du_jeu = Plateau()
 
+plateau_du_jeu.creation_cases()
 
+partie = Jeu()
