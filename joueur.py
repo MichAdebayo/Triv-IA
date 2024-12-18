@@ -1,3 +1,5 @@
+import random
+
 class Joueur:
     def __init__(self, nom, age):
         self.nom = nom
