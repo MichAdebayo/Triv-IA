@@ -1,103 +1,136 @@
+from plateau import Plateau
+import random
+import json
+
 class Jeu:
     def __init__(self):
         self.joueurs = []
-        self.questions_par_theme = {}
         self.tour_actuel = 0
-        self.manche = 1
+        self.plateau = Plateau()
 
     def initialiser_joueurs(self):
-        """Initialise les joueurs avec leurs noms et âges."""
-        nb_joueurs = int(input("Entrez le nombre de joueurs (entre 2 et 6) : "))
-        while nb_joueurs < 2 or nb_joueurs > 6:
-            nb_joueurs = int(input("Entrez un nombre valide (entre 2 et 6) : "))
+        nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
 
-        for i in range(nb_joueurs):
-            nom = input(f"Entrez le nom du joueur {i + 1} : ")
-            age = int(input(f"Entrez l'âge de {nom} : "))
-            self.joueurs.append(Joueur(nom, age))
+        animaux = [
+            "🐱",  # Chat
+            "🐶",  # Chien
+            "🐻",  # Ours
+            "🐸",  # Grenouille
+            "🐯",  # Tigre
+            "🐧"   # Pingouin
+        ]
 
-    def charger_questions(self, fichier_json):
-        """Charge les questions depuis un fichier JSON."""
-        with open(fichier_json, "r", encoding="utf-8") as file:
-            data = json.load(file)
-        for theme, liste_questions in data.items():
-            self.questions_par_theme[theme] = [
-                Questions(
-                    q["question"],
-                    q["reponses"],
-                    q["bonne_reponse"],
-                    categorie=theme
-                ) for q in liste_questions
+
+        for i in range(int(nb_joueurs)):
+
+            nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
+
+            animaux = [
+                "🐱",  # Chat
+                "🐶",  # Chien
+                "🐻",  # Ours
+                "🐸",  # Grenouille
+                "🐯",  # Tigre
+                "🐧"   # Pingouin
             ]
 
-    def determiner_premier_joueur(self):
-        """Détermine le premier joueur en fonction de l'âge le plus jeune."""
-        premier_joueur = min(self.joueurs, key=lambda joueur: joueur.age)
-        print(f"\n{premier_joueur.nom} commence le jeu !")
-        self.tour_actuel = self.joueurs.index(premier_joueur)
 
-    def joueur_suivant(self):
-        """Passe au joueur suivant."""
-        self.tour_actuel = (self.tour_actuel + 1) % len(self.joueurs)
-        return self.joueurs[self.tour_actuel]
+            for i in range(int(nb_joueurs)):
+
+                nom_du_joueur = input('saisissez le nom du joueur   ')
+
+
+                emoji_joueur = random.choice(animaux)
+                animaux.remove(emoji_joueur)
+                print(f"vous êtes l'emoji {emoji_joueur}")
+                self.joueurs.append([nom_du_joueur, emoji_joueur])
+
+    # def determiner_premier_joueur(self):
+    #     """Détermine le premier joueur (le plus jeune)."""
+    #     premier_joueur = min(self.joueurs, key=lambda joueur: joueur.age)
+    #     print(f"\n{premier_joueur.nom} commence le jeu !")
+    #     self.tour_actuel = self.joueurs.index(premier_joueur)
 
     def lancer_manche(self):
         """Exécute une manche du jeu."""
         joueur = self.joueurs[self.tour_actuel]
-        print(f"\n--- Manche {self.manche} ---")
-        print(f"C'est au tour de {joueur.nom} !")
+        print(f"\nC'est au tour de {joueur.nom} !")
 
         # Lancer le dé
         resultat = joueur.lancer_de()
         print(f"{joueur.nom} a lancé le dé et a obtenu : {resultat}")
 
         # Déplacer le joueur
-        self.se_deplacer(joueur, resultat)
 
-        # Déterminer et poser une question
-        case = self.determiner_case(joueur.position)
-        self.poser_question(case, joueur)
+        case = self.plateau.obtenir_case(joueur.position)
+        choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
+        if choix_mouvement != 'ar' or choix_mouvement != 'av':
+            choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
 
-        # Vérifier la condition de victoire
-        if joueur.a_tous_les_camemberts():
-            print(f"\nFélicitations {joueur.nom} ! Vous avez gagné le jeu 🎉 !")
-            return True
+        if choix_mouvement == 'av':
+            joueur.position += resultat
+        else:
+            choix_mouvement == 'ar'
+            joueur.position -= resultat
 
-        self.tour_actuel = (self.tour_actuel + 1) % len(self.joueurs)
-        self.manche += 1
-        return False
+        joueur.position = joueur.position % len(self.plateau.cases)
 
-    def se_deplacer(self, joueur, resultat):
-        """Déplace le joueur sur le plateau."""
-        ## joueur.position = (joueur.position + resultat) % 40
-        print(f"{joueur.nom} se déplace à la case {joueur.position}.")
 
-    def determiner_case(self, position):
-        """Détermine la case où se trouve le joueur."""
-        couleurs = ["Bleu", "Rose", "Jaune", "Vert", "Orange", "Violet"]
-        couleur = couleurs[position % len(couleurs)]
-        return Case(couleur, "Général")  # Les catégories peuvent évoluer
+            
+        print(f"{joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
 
-    def poser_question(self, case, joueur):
-        """Pose une question basée sur la case."""
+        # Poser une question
         questions = self.questions_par_theme.get(case.couleur, [])
         if questions:
             question = random.choice(questions)
             if question.poser():
                 print("Bonne réponse ! 🎉")
-                joueur.ajouter_camembert(case.couleur)
+                if  case.couleur not in joueur.camemberts:
+                    joueur.ajouter_camembert(case.couleur)
+
+                    # Vérifier si le joueur a gagné
+                    if joueur.a_tous_les_camemberts():
+                        print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
+                        return True
+
+                # Si bonne réponse, rejouer
+                print(f"{joueur.nom} rejoue !")
+                return False  # Le joueur continue de jouer
+
             else:
                 print("Mauvaise réponse 😞.")
 
-    for theme, questions in jeu.questions_par_theme.items():
-        print(f"\nThème : {theme}")
-        for question_data in questions:
-            question = Question(
-                texte=question_data["question"],
-                reponses=question_data["reponses"],
-                bonne_reponse_index=question_data["bonne_reponse_index"],
-                categorie=theme
-            )
-            question.poser()
+        # Passer au joueur suivant
+        self.tour_actuel = (self.tour_actuel + 1) % len(self.joueurs)
+        return False
 
-        time.sleep(1)  # Pause pour un meilleur rythme de jeu
+    def poser(case_joueur):
+        """Pose la question au joueur et retourne s'il a répondu correctement."""
+        with open('questions_trivial_pursuit.json', 'r') as files:
+            question = json.load(files)
+
+        cat_question = case_joueur.categorie
+        question_posee = random.choice(question[cat_question])
+
+        print(f"\nQuestion ({cat_question}): {question_posee['question']}")
+        for i, reponse in enumerate(question_posee['reponses'], 1):
+            print(f"{i}. {reponse}")
+
+        choix = input("Votre réponse (numéro) : ")
+        while not choix.isdigit() or not (1 <= int(choix) <= 4):
+            print("Entrée invalide. Réessayez.")
+            choix = input("Votre réponse (numéro) : ")
+
+        return int(choix) - 1 == question_posee['bonne_reponse']  
+
+
+
+
+    def lancer_jeu(self):
+        """Lance le jeu complet."""
+        print("Bienvenue dans le jeu !")
+        self.initialiser_joueurs()
+        self.charger_questions("/questions_trivial_pursuit.json")
+        self.determiner_premier_joueur()
+        while not self.lancer_manche():
+          pass

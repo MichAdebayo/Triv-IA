@@ -1,16 +1,15 @@
 import random
 
 class Joueur:
-    def __init__(self, nom, age):
+    def __init__(self, nom):
         self.nom = nom
-        self.age = age
         self.camemberts = set()  # Ensemble pour stocker les couleurs de camemberts gagnés
         self.position = 0  # Position actuelle du joueur sur le plateau
 
-    def ajouter_camembert(self, couleur):
-        """Ajoute un camembert de couleur spécifique au joueur."""
-        self.camemberts.add(couleur)
-        print(f"{self.nom} a gagné un camembert de couleur {couleur} !")
+    def ajouter_camembert(self, categorie):
+        """Ajoute un camembert de categorie spécifique au joueur."""
+        self.camemberts.add(categorie)
+        print(f"{self.nom} a gagné un camembert de categorie {categorie} !")
 
     def a_tous_les_camemberts(self):
         """Vérifie si le joueur a collecté les 6 camemberts."""

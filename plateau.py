@@ -6,8 +6,8 @@ import random
 class Plateau:
     
 
-    def __init__(self, joueurs= [], cases=[]):
-        self.joueurs = joueurs
+    def __init__(self, cases=[]):
+
         self.cases = cases
 
 
@@ -34,33 +34,6 @@ class Plateau:
                 self.cases.append(new_case)
 
 
-
-    def creation_joueur(self):
-
-        nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
-
-        animaux = [
-            "🐱",  # Chat
-            "🐶",  # Chien
-            "🐻",  # Ours
-            "🐸",  # Grenouille
-            "🐯",  # Tigre
-            "🐧"   # Pingouin
-        ]
-
-
-        for i in range(int(nb_joueurs)):
-
-            nom_du_joueur = input('saisissez le nom du joueur   ')
-
-            age_joueur = input(f"quel est l'age de {nom_du_joueur} ?    ")
-
-            emoji_joueur = random.choice(animaux)
-            animaux.remove(emoji_joueur)
-            print(f"vous êtes l'emoji {emoji_joueur}")
-            self.joueurs.append([nom_du_joueur, age_joueur, emoji_joueur])
-
-
     def deplacement_joueur(self,i):
         lancer = self.joueurs[i].lancer_de()
         choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
@@ -78,6 +51,14 @@ class Plateau:
 
         types_possibles = ['Camembert', 'Normale']
         categories = ['Base de données', 'Python', 'Unix', 'Actu IA', 'Devops',"Personnalité de l'IA"]
+        code_couleurs = {
+            "bleu": "Base de données",
+            "vert": "Python",
+            "rouge": "Unix",
+            "jaune": "Actu IA",
+            "orange": "Devops",
+            "violet": "Personnalités de l'IA"
+            }
         emojis = [
             "🟦",  # Carré bleu
             "🟩",  # Carré vert

@@ -1,5 +1,5 @@
 {
-    "bleu": [
+    "Base de données": [
         {
             "question": "Qu'est-ce qu'une clé primaire en SQL ?",
             "reponses": [
@@ -191,7 +191,7 @@
             "bonne_reponse": 0
         }
     ],
-    "vert": [
+    "Python": [
         {
             "question": "Comment déclarer une liste en Python ?",
             "reponses": [
@@ -393,7 +393,7 @@
             "bonne_reponse": 3
         }
     ],
-    "rose": [
+    "Unix": [
         {
             "question": "Quelle commande permet d'afficher le répertoire actuel ?",
             "reponses": [
@@ -595,7 +595,7 @@
             "bonne_reponse": 1
         }
     ],
-    "jaune": [
+    "Actu IA": [
         {
             "question": "Quel est le modèle de langage développé par OpenAI en 2024 ?",
             "reponses": [
@@ -797,7 +797,7 @@
             "bonne_reponse": 1
         }
     ],
-    "orange": [
+    "Devops": [
         {
             "question": "Quelle commande Git permet de cloner un dépôt distant ?",
             "reponses": [
@@ -999,7 +999,7 @@
             "bonne_reponse": 2
         }
     ],
-    "violet": [
+    "Personnalités de l'IA": [
         {
             "question": "Qui est considéré comme le père de l'intelligence artificielle ?",
             "reponses": [
