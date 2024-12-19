@@ -96,27 +96,28 @@ class Jeu:
 
                 # Vérifier si le joueur a gagné
 
-            if joueur.a_tous_les_camemberts():
-                time.sleep(1)
-                print("🎊"*25, "\n\n\n")
-                print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
-                print("\n\n\n", "🎊"*25)
-                return True
+                if joueur.a_tous_les_camemberts():
+                    time.sleep(1)
+                    print("\n\n\n","🎊"*25, "\n\n\n")
+                    print(f"  Félicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
+                    print("\n\n\n", "🎊"*25)
+                    return True
+                    
 
-            else:   
-                # Si bonne réponse, rejouer
-                print(len(joueur.camemberts))
-                time.sleep(1)
-                print(f"\n{element_joueurs[1]} {joueur.nom} rejoue !")
-                time.sleep(1)
-                return False  # Le joueur continue de jouer1
+                else:   
+                    # Si bonne réponse, rejouer
+                    print(len(joueur.camemberts))
+                    time.sleep(1)
+                    print(f"\n{element_joueurs[1]} {joueur.nom} rejoue !")
+                    time.sleep(1)
+                    return False  # Le joueur continue de jouer
                 
 
         else:
             time.sleep(1)
             print(f"\n❌ Mauvaise réponse. 😞 ")
-        
-            self.tour_actuel = (self.tour_actuel +1 ) % len(self.joueurs)
+    
+            self.tour_actuel = (self.tour_actuel + 1 ) % len(self.joueurs)
             return False
 
     def poser(self, case_joueur):
@@ -148,17 +149,14 @@ class Jeu:
         print(f"\n\n\n🎉 Bienvenue dans le jeu 🎉")
         self.initialiser_joueurs()
         
-        while self.lancer_manche() == True:
-            break
+        while not self.lancer_manche():
+            continue
+            
 
 
 if __name__ == '__main__':
     plateau_du_jeu = Plateau()
-
-
     plateau_du_jeu.creation_cases()
     # plateau_du_jeu.creer_plateau()
-
     partie = Jeu()
     partie.lancer_jeu()
-    partie.lancer_manche()
