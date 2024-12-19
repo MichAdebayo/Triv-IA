@@ -1,5 +1,6 @@
 from plateau import Plateau
 import random
+import time
 from joueur import Joueur
 import json
 
@@ -10,7 +11,11 @@ class Jeu:
         self.plateau = Plateau()
 
     def initialiser_joueurs(self):
-        nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
+        """Initilisation des joueurs"""
+
+        nb_joueurs = input(f"\n🌟 Veuillez saisir un nombre de joueur (de 1 à 6 joueurs !): ")
+        while not nb_joueurs.isdigit() or not (1 <= int(nb_joueurs) <= 6):
+            print("🌟 Entrée invalide. Réessayez.")
 
         animaux = [
             "🐱",  # Chat
@@ -24,12 +29,12 @@ class Jeu:
 
         for i in range(int(nb_joueurs)):
 
-            nom_du_joueur = input(f'saisissez le nom du joueur {i + 1} : ')
-
+            nom_du_joueur = input(f"\n🧑 Saisissez le nom du joueur {i + 1} : ")
 
             emoji_joueur = random.choice(animaux)
             animaux.remove(emoji_joueur)
-            print(f"vous êtes l'emoji {emoji_joueur}")
+            print(f"\nVous êtes l'emoji {emoji_joueur}")
+            time.sleep(1)
             nouveau_joueur = Joueur(nom= nom_du_joueur)
             self.joueurs.append([nouveau_joueur, emoji_joueur])
 
@@ -37,22 +42,37 @@ class Jeu:
 
     def lancer_manche(self):
         """Exécute une manche du jeu."""
+
         joueur = self.joueurs[self.tour_actuel][0]
         element_joueurs = self.joueurs[self.tour_actuel]
-        print(f"\nC'est au tour de {joueur.nom} !")
+
+
+
+        for j in self.joueurs:
+            camembert_str = ', '.join(str(c) for c in j[0].camemberts)
+            print(f'{j[0].nom}, {j[1]}, camembert(s) : {len(j[0].camemberts)} - {camembert_str}')
+        print(f"\n\nC'est au tour de {joueur.nom} ! {element_joueurs[1]}\n")
         self.plateau.creer_plateau(element_joueurs)
+        time.sleep(1)
 
         # Lancer le dé
         resultat = joueur.lancer_de()
-        print(f"{joueur.nom} a lancé le dé et a obtenu : {resultat}")
+        print(f"\n\n\n{element_joueurs[1]} {joueur.nom} a lancé le 🎲 et a obtenu : {resultat}")
+        time.sleep(1)
 
-        
+
         # Déplacer le joueur
-
         case = self.plateau.get_case(joueur.position)
-        choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
+
+        case_av = self.plateau.get_case((joueur.position + resultat) % (len(self.plateau.cases)))
+        case_ar = self.plateau.get_case((joueur.position - resultat) % (len(self.plateau.cases)))
+
+        print(f"\n\n😚 Vous avez le choix entre :")
+        print(f"\n - '{case_av.categorie}' ({case_av.type}) si vous allez en avant\n - '{case_ar.categorie}' ({case_ar.type}) si vous allez en arrière"),
+
+        choix_mouvement = input(f"\n🤗 Si vous voulez aller en avant tapez 'av' pour aller en arriere tapez 'ar' : ")
         if choix_mouvement != 'ar' and choix_mouvement != 'av':
-            choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
+            choix_mouvement = input(f"\n😣 Mauvaise entrée. Réessayez\nSi vous voulez aller en avant tapez 'av' pour aller en arriere tapez 'ar' : ")
         else:
             if choix_mouvement == 'av':
                 joueur.position += resultat
@@ -61,38 +81,47 @@ class Jeu:
                 joueur.position -= resultat
 
         joueur.position = joueur.position % (len(self.plateau.cases))
-        print(joueur.position)
         self.plateau.creer_plateau(element_joueurs)
 
 
             
-        print(f"{joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
+        print(f"\n\n{element_joueurs[1]} {joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
 
 
         if self.poser(joueur.position):
-            print("Bonne réponse ! 🎉")
-            if  case.categorie not in joueur.camemberts and case.type == 'Camembert':
-                print('===============================================')
-                joueur.ajouter_camembert(case.categorie)
+            print(f"\n✅ Bonne réponse ! 🎉")
+            print(len(joueur.camemberts))
+            if case.categorie not in joueur.camemberts and case.type == 'Camembert':
+                joueur.ajouter_camembert(self.plateau.cases[joueur.position].categorie)
 
                 # Vérifier si le joueur a gagné
 
-                if joueur.a_tous_les_camemberts():
-                    print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
-                    return True
+            if joueur.a_tous_les_camemberts():
+                time.sleep(1)
+                print("🎊"*25, "\n\n\n")
+                print(f"\nFélicitations {joueur.nom}, vous avez gagné le jeu ! 🎉")
+                print("\n\n\n", "🎊"*25)
+                return True
 
-            # Si bonne réponse, rejouer
-            print(f"{joueur.nom} rejoue !")
-            return False  # Le joueur continue de jouer
+            else:   
+                # Si bonne réponse, rejouer
+                print(len(joueur.camemberts))
+                time.sleep(1)
+                print(f"\n{element_joueurs[1]} {joueur.nom} rejoue !")
+                time.sleep(1)
+                return False  # Le joueur continue de jouer1
+                
 
         else:
-            print("Mauvaise réponse 😞.")
+            time.sleep(1)
+            print(f"\n❌ Mauvaise réponse. 😞 ")
         
             self.tour_actuel = (self.tour_actuel +1 ) % len(self.joueurs)
             return False
 
     def poser(self, case_joueur):
         """Pose la question au joueur et retourne s'il a répondu correctement."""
+
         with open('questions_trivial_pursuit.json', 'r') as files:
             question = json.load(files)
 
@@ -105,25 +134,22 @@ class Jeu:
         for i, reponse in enumerate(question_posee['reponses'], 1):
             print(f"{i}. {reponse}")
 
-        choix = input("Votre réponse (numéro) : ")
+        choix = input(f"Votre réponse (numéro) : ")
         while not choix.isdigit() or not (1 <= int(choix) <= 4):
-            print("Entrée invalide. Réessayez.")
-            choix = input("Votre réponse (numéro) : ")
+            print(f"😣 Entrée invalide. Réessayez.")
+            choix = input(f"Votre réponse (numéro) : ")
 
         return int(choix) - 1 == question_posee['bonne_reponse']
 
 
-
-
-
     def lancer_jeu(self):
         """Lance le jeu complet."""
-        print("Bienvenue dans le jeu !")
+        
+        print(f"\n\n\n🎉 Bienvenue dans le jeu 🎉")
         self.initialiser_joueurs()
         
-        while not self.lancer_manche():     
-            pass
-
+        while self.lancer_manche() == True:
+            break
 
 
 if __name__ == '__main__':
