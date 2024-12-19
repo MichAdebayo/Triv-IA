@@ -47,7 +47,7 @@ class Plateau:
     #         self.joueurs[i].position -= lancer
 
 
-    def creer_plateau(self):
+    def creer_plateau(self, joueur):
 
         types_possibles = ['Camembert', 'Normale']
         categories = ['Base de données', 'Python', 'Unix', 'Actu IA', 'Devops',"Personnalité de l'IA"]
@@ -79,43 +79,46 @@ class Plateau:
 
         for i in range(12):
             
+            if i == joueur[0].position:
+                print(joueur[1], end = '    ')
 
             
-            if self.cases[i].categorie == categories[0]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[0], end = '    ')
-                else:
-                    print(emojis[0], end = '   ')
+            else:
+                if self.cases[i].categorie == categories[0]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[0], end = '    ')
+                    else:
+                        print(emojis[0], end = '   ')
 
-            elif self.cases[i].categorie == categories[1]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[1], end = '    ')
-                else:
-                    print(emojis[1], end = '   ')
+                elif self.cases[i].categorie == categories[1]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[1], end = '    ')
+                    else:
+                        print(emojis[1], end = '   ')
 
-            elif self.cases[i].categorie == categories[2]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[2], end = '    ')
-                else:
-                    print(emojis[2], end = '   ')
+                elif self.cases[i].categorie == categories[2]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[2], end = '    ')
+                    else:
+                        print(emojis[2], end = '   ')
 
-            elif self.cases[i].categorie == categories[3]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[3], end = '    ')
-                else:
-                    print(emojis[3], end = '   ')
+                elif self.cases[i].categorie == categories[3]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[3], end = '    ')
+                    else:
+                        print(emojis[3], end = '   ')
 
-            elif self.cases[i].categorie == categories[4]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[4], end = '    ')
-                else:
-                    print(emojis[4], end = '  ')
+                elif self.cases[i].categorie == categories[4]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[4], end = '    ')
+                    else:
+                        print(emojis[4], end = '  ')
 
-            elif self.cases[i].categorie == categories[5]:
-                if self.cases[i].type == types_possibles[0]:
-                    print(emojis_ronds[5], end = '    ')
-                else:
-                    print(emojis[5], end = '   ')
+                elif self.cases[i].categorie == categories[5]:
+                    if self.cases[i].type == types_possibles[0]:
+                        print(emojis_ronds[5], end = '    ')
+                    else:
+                        print(emojis[5], end = '   ')
                     
         print('\n')
 
@@ -123,79 +126,90 @@ class Plateau:
         c = 35
         c1 = 12
         while c >= 30:
-            if self.cases[c-1].categorie == categories[0]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[0], end = '    ')
-                else:
-                    print(emojis[0], end = '   ')
+            if c == joueur[0].position :
+                print(joueur[1], end = '    ') 
 
-            elif self.cases[c-1].categorie == categories[1]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[1], end = '    ')
-                else:
-                    print(emojis[1], end = '   ')
+            else:
 
-            elif self.cases[c-1].categorie == categories[2]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[2], end = '    ')
-                else:
-                    print(emojis[2], end = '   ')
 
-            elif self.cases[c-1].categorie == categories[3]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[3], end = '    ')
-                else:
-                    print(emojis[3], end = '   ')
+                if self.cases[c-1].categorie == categories[0]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[0], end = '    ')
+                    else:
+                        print(emojis[0], end = '   ')
 
-            elif self.cases[c-1].categorie == categories[4]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[4], end = '   ')
-                else:
-                    print(emojis[4], end = '   ')
+                elif self.cases[c-1].categorie == categories[1]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[1], end = '    ')
+                    else:
+                        print(emojis[1], end = '   ')
 
-            elif self.cases[c-1].categorie == categories[5]:
-                if self.cases[c-1].type == types_possibles[0]:
-                    print(emojis_ronds[5], end = '    ')
-                else:
-                    print(emojis[5], end = '   ')
+                elif self.cases[c-1].categorie == categories[2]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[2], end = '    ')
+                    else:
+                        print(emojis[2], end = '   ')
+
+                elif self.cases[c-1].categorie == categories[3]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[3], end = '    ')
+                    else:
+                        print(emojis[3], end = '   ')
+
+                elif self.cases[c-1].categorie == categories[4]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[4], end = '   ')
+                    else:
+                        print(emojis[4], end = '   ')
+
+                elif self.cases[c-1].categorie == categories[5]:
+                    if self.cases[c-1].type == types_possibles[0]:
+                        print(emojis_ronds[5], end = '    ')
+                    else:
+                        print(emojis[5], end = '   ')
                     
             print(' '* 49, end = '   ')
+        
+            if c1 == joueur[0].position:
+                print(joueur[1], end = '    ')
+            
+            else:
 
-            if self.cases[c1-1].categorie == categories[0]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[0], end='\n\n')
-                else:
-                    print(emojis[0], end='\n\n')
+                if self.cases[c1-1].categorie == categories[0]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[0], end='\n\n')
+                    else:
+                        print(emojis[0], end='\n\n')
 
-            elif self.cases[c1-1].categorie == categories[1]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[1], end='\n\n')
-                else:
-                    print(emojis[1], end='\n\n')
+                elif self.cases[c1-1].categorie == categories[1]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[1], end='\n\n')
+                    else:
+                        print(emojis[1], end='\n\n')
 
-            elif self.cases[c1-1].categorie == categories[2]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[2], end='\n\n')
-                else:
-                    print(emojis[2], end='\n\n')
+                elif self.cases[c1-1].categorie == categories[2]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[2], end='\n\n')
+                    else:
+                        print(emojis[2], end='\n\n')
 
-            elif self.cases[c1-1].categorie == categories[3]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[3], end='\n\n')
-                else:
-                    print(emojis[3], end='\n\n')
+                elif self.cases[c1-1].categorie == categories[3]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[3], end='\n\n')
+                    else:
+                        print(emojis[3], end='\n\n')
 
-            elif self.cases[c1-1].categorie == categories[4]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[4], end='\n\n')
-                else:
-                    print(emojis[4], end='\n\n')
+                elif self.cases[c1-1].categorie == categories[4]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[4], end='\n\n')
+                    else:
+                        print(emojis[4], end='\n\n')
 
-            elif self.cases[c1-1].categorie == categories[5]:
-                if self.cases[c1-1].type == types_possibles[0]:       
-                    print(emojis_ronds[5], end='\n\n')
-                else:
-                    print(emojis[5], end='\n\n')
+                elif self.cases[c1-1].categorie == categories[5]:
+                    if self.cases[c1-1].type == types_possibles[0]:       
+                        print(emojis_ronds[5], end='\n\n')
+                    else:
+                        print(emojis[5], end='\n\n')
 
             c -= 1
             c1 +=1
@@ -203,6 +217,11 @@ class Plateau:
 
         for i in range(29, 17, -1):
                 
+            if i == joueur[0].position:
+                print(joueur[1], end = '    ')
+
+            else:
+
                 if self.cases[i].categorie == categories[0]:
                     if self.cases[i].type == types_possibles[0]:
                         print(emojis_ronds[0], end = '    ')

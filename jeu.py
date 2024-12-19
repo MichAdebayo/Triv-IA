@@ -38,12 +38,15 @@ class Jeu:
     def lancer_manche(self):
         """Exécute une manche du jeu."""
         joueur = self.joueurs[self.tour_actuel][0]
+        element_joueurs = self.joueurs[self.tour_actuel]
         print(f"\nC'est au tour de {joueur.nom} !")
+        self.plateau.creer_plateau(element_joueurs)
 
         # Lancer le dé
         resultat = joueur.lancer_de()
         print(f"{joueur.nom} a lancé le dé et a obtenu : {resultat}")
 
+        
         # Déplacer le joueur
 
         case = self.plateau.get_case(joueur.position)
@@ -59,6 +62,7 @@ class Jeu:
 
         joueur.position = joueur.position % (len(self.plateau.cases))
         print(joueur.position)
+        self.plateau.creer_plateau(element_joueurs)
 
 
             
@@ -127,7 +131,7 @@ if __name__ == '__main__':
 
 
     plateau_du_jeu.creation_cases()
-    plateau_du_jeu.creer_plateau()
+    # plateau_du_jeu.creer_plateau()
 
     partie = Jeu()
     partie.lancer_jeu()
