@@ -1,0 +1,1204 @@
+{
+    "Base de données": [
+        {
+            "question": "Qu'est-ce qu'une clé primaire en SQL ?",
+            "reponses": [
+                "Une colonne unique",
+                "Un index",
+                "Une jointure",
+                "Une table"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande SQL est utilisée pour ajouter des données ?",
+            "reponses": [
+                "SELECT",
+                "INSERT",
+                "UPDATE",
+                "DELETE"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel type de jointure renvoie toutes les lignes correspondantes dans deux tables ?",
+            "reponses": [
+                "INNER JOIN",
+                "LEFT JOIN",
+                "RIGHT JOIN",
+                "FULL JOIN"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quelle clause SQL est utilisée pour filtrer les résultats d'une requête ?",
+            "reponses": [
+                "SELECT",
+                "WHERE",
+                "ORDER BY",
+                "GROUP BY"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle est la commande pour supprimer une table SQL ?",
+            "reponses": [
+                "DROP TABLE",
+                "DELETE TABLE",
+                "REMOVE TABLE",
+                "TRUNCATE TABLE"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande SQL permet de mettre à jour des données ?",
+            "reponses": [
+                "UPDATE",
+                "ALTER",
+                "MODIFY",
+                "CHANGE"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel est le rôle d'une clause GROUP BY ?",
+            "reponses": [
+                "Regrouper des lignes",
+                "Classer par ordre",
+                "Supprimer les doublons",
+                "Créer des groupes de tables"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel mot-clé SQL permet de compter le nombre d'enregistrements ?",
+            "reponses": [
+                "SUM",
+                "COUNT",
+                "AVERAGE",
+                "MAX"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande SQL est utilisée pour créer une nouvelle table ?",
+            "reponses": [
+                "NEW TABLE",
+                "INSERT TABLE",
+                "CREATE TABLE",
+                "MAKE TABLE"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande SQL est utilisée pour supprimer des lignes spécifiques ?",
+            "reponses": [
+                "REMOVE",
+                "DELETE",
+                "DROP",
+                "ERASE"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle est la différence entre DELETE et TRUNCATE ?",
+            "reponses": [
+                "Aucune",
+                "DELETE supprime lignes par lignes, TRUNCATE réinitialise la table",
+                "DELETE réinitialise la table, TRUNCATE efface ligne par ligne",
+                "TRUNCATE ajoute des lignes"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel type de données SQL est utilisé pour stocker du texte ?",
+            "reponses": [
+                "VARCHAR",
+                "INT",
+                "BOOLEAN",
+                "DECIMAL"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle fonction SQL calcule la somme ?",
+            "reponses": [
+                "TOTAL",
+                "COUNT",
+                "SUM",
+                "AVG"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande SQL permet de changer le nom d'une colonne ?",
+            "reponses": [
+                "RENAME COLUMN",
+                "ALTER TABLE ... RENAME COLUMN",
+                "MODIFY COLUMN",
+                "CHANGE NAME"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qu'est-ce qu'un index en base de données ?",
+            "reponses": [
+                "Une clé étrangère",
+                "Un pointeur accélérant les recherches",
+                "Un ensemble de tables",
+                "Une clé primaire"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel mot-clé SQL permet de récupérer des lignes distinctes ?",
+            "reponses": [
+                "SELECT DISTINCT",
+                "SELECT UNIQUE",
+                "REMOVE DUPLICATES",
+                "SELECT FILTER"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle est la fonction de la clause HAVING ?",
+            "reponses": [
+                "Filtrer les résultats après un GROUP BY",
+                "Supprimer les doublons",
+                "Ajouter des colonnes",
+                "Créer des tables temporaires"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel est l'opérateur pour vérifier une condition dans SQL ?",
+            "reponses": [
+                "==",
+                "=",
+                "!=",
+                "EQUALS"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle fonction SQL retourne la valeur maximale ?",
+            "reponses": [
+                "MAX",
+                "TOP",
+                "UPPER",
+                "HIGH"
+            ],
+            "bonne_reponse": 0
+        }
+    ],
+    "Python": [
+        {
+            "question": "Comment déclarer une liste en Python ?",
+            "reponses": [
+                "list()",
+                "array[]",
+                "{ }",
+                "set()"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle bibliothèque Python permet de manipuler les DataFrames ?",
+            "reponses": [
+                "NumPy",
+                "Pandas",
+                "Matplotlib",
+                "Seaborn"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Comment afficher un message en Python ?",
+            "reponses": [
+                "echo()",
+                "print()",
+                "display()",
+                "say()"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle boucle Python utilise une condition ?",
+            "reponses": [
+                "for",
+                "do-while",
+                "while",
+                "repeat"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment ouvrir un fichier en lecture ?",
+            "reponses": [
+                "open('file', 'r')",
+                "file.read()",
+                "file.open()",
+                "write('file')"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle est l'extension d'un fichier Python ?",
+            "reponses": [
+                ".pyt",
+                ".pt",
+                ".py",
+                ".p"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment déclarer une fonction en Python ?",
+            "reponses": [
+                "func()",
+                "define()",
+                "def",
+                "function()"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle méthode retourne la longueur d'une liste ?",
+            "reponses": [
+                "count()",
+                "len()",
+                "size()",
+                "length()"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle fonction convertit une chaîne en entier ?",
+            "reponses": [
+                "int()",
+                "str()",
+                "float()",
+                "bool()"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Que renvoie 3**2 ?",
+            "reponses": [
+                "5",
+                "6",
+                "9",
+                "8"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment accéder au dernier élément d'une liste ?",
+            "reponses": [
+                "list[-1]",
+                "list[0]",
+                "list[last]",
+                "list[len]"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Comment ajouter un élément à une liste ?",
+            "reponses": [
+                "list.add()",
+                "list.insert()",
+                "list.append()",
+                "list.add_last()"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment trier une liste ?",
+            "reponses": [
+                "sort()",
+                "order()",
+                "arrange()",
+                "align()"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle est la fonction de range() ?",
+            "reponses": [
+                "Créer une séquence",
+                "Créer une liste vide",
+                "Concaténer deux listes",
+                "Supprimer des éléments"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Comment commenter plusieurs lignes ?",
+            "reponses": [
+                "#ligne",
+                "/* texte */",
+                "''' texte '''",
+                "-- commentaire"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle est la valeur par défaut d'une variable non initialisée ?",
+            "reponses": [
+                "None",
+                "0",
+                "null",
+                "vide"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Comment arrondir un nombre flottant ?",
+            "reponses": [
+                "ceil()",
+                "floor()",
+                "round()",
+                "approx()"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment accéder à une valeur dans un dictionnaire ?",
+            "reponses": [
+                "dict[key]",
+                "dict.value()",
+                "dict->key",
+                "dict.key()"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Comment concaténer deux chaînes ?",
+            "reponses": [
+                "str.join()",
+                "str.add()",
+                "+",
+                "&"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment supprimer un élément d'une liste ?",
+            "reponses": [
+                "remove()",
+                "del()",
+                "pop()",
+                "Tous les trois"
+            ],
+            "bonne_reponse": 3
+        }
+    ],
+    "Unix": [
+        {
+            "question": "Quelle commande permet d'afficher le répertoire actuel ?",
+            "reponses": [
+                "cd",
+                "pwd",
+                "ls",
+                "dir"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Comment lister les fichiers d'un répertoire ?",
+            "reponses": [
+                "pwd",
+                "find",
+                "ls",
+                "cd"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande permet de changer de répertoire ?",
+            "reponses": [
+                "mv",
+                "cd",
+                "ls",
+                "cp"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande affiche le contenu d'un fichier texte ?",
+            "reponses": [
+                "grep",
+                "echo",
+                "cat",
+                "ls"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande est utilisée pour copier des fichiers ?",
+            "reponses": [
+                "rm",
+                "cat",
+                "mv",
+                "cp"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Comment supprimer un fichier en ligne de commande ?",
+            "reponses": [
+                "delete",
+                "rm",
+                "mv",
+                "erase"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande permet de créer un nouveau répertoire ?",
+            "reponses": [
+                "create",
+                "mkdir",
+                "rmdir",
+                "touch"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Comment afficher les premières lignes d'un fichier ?",
+            "reponses": [
+                "tail",
+                "more",
+                "head",
+                "less"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande permet de déplacer ou renommer un fichier ?",
+            "reponses": [
+                "mv",
+                "cp",
+                "ls",
+                "rm"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande affiche la dernière modification d'un fichier ?",
+            "reponses": [
+                "date",
+                "touch",
+                "ls -l",
+                "chmod"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande affiche les derniers ajouts d'un fichier ?",
+            "reponses": [
+                "tail",
+                "less",
+                "head",
+                "more"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Comment rechercher un fichier dans un répertoire ?",
+            "reponses": [
+                "find",
+                "ls",
+                "search",
+                "grep"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande affiche l'aide d'une autre commande ?",
+            "reponses": [
+                "help",
+                "doc",
+                "man",
+                "--info"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment changer les permissions d'un fichier ?",
+            "reponses": [
+                "chown",
+                "mv",
+                "chmod",
+                "touch"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment compter le nombre de lignes dans un fichier texte ?",
+            "reponses": [
+                "grep",
+                "count",
+                "lines",
+                "wc -l"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quelle commande affiche les processus en cours ?",
+            "reponses": [
+                "status",
+                "ps",
+                "kill",
+                "top"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Comment interrompre une commande en cours d'exécution ?",
+            "reponses": [
+                "Ctrl+Z",
+                "Ctrl+C",
+                "Escape",
+                "Ctrl+X"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande permet d'éditer un fichier texte ?",
+            "reponses": [
+                "nano",
+                "emacs",
+                "vim",
+                "vi"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment afficher le chemin complet d'une commande ?",
+            "reponses": [
+                "locate",
+                "find",
+                "path",
+                "which"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quelle commande permet de chercher un mot dans un fichier ?",
+            "reponses": [
+                "cut",
+                "grep",
+                "find",
+                "awk"
+            ],
+            "bonne_reponse": 1
+        }
+    ],
+    "Actu IA": [
+        {
+            "question": "Quel est le modèle de langage développé par OpenAI en 2024 ?",
+            "reponses": [
+                "GPT-4.5",
+                "GPT-3",
+                "BERT",
+                "LLaMA"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle entreprise a récemment lancé le modèle LLaMA ?",
+            "reponses": [
+                "Google",
+                "Meta",
+                "Microsoft",
+                "Amazon"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel outil de Google est dédié aux réponses basées sur l'IA ?",
+            "reponses": [
+                "Gemini",
+                "Bard",
+                "ChatGPT",
+                "Anthropic"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel modèle est connu pour son efficacité énergétique parmi les IA récentes ?",
+            "reponses": [
+                "Falcon",
+                "Mistral",
+                "LLaMA 2",
+                "GPT-4"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle avancée majeure rend les modèles IA plus rapides en 2024 ?",
+            "reponses": [
+                "Amélioration des GPUs",
+                "Apprentissage par renforcement",
+                "Quants Processing",
+                "Ensemble Learning"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle entreprise est spécialisée dans les puces pour l'IA et les GPUs ?",
+            "reponses": [
+                "Intel",
+                "NVIDIA",
+                "AMD",
+                "Qualcomm"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel modèle open-source rivalise avec GPT-4 ?",
+            "reponses": [
+                "Claude",
+                "Mistral",
+                "LLaMA 3",
+                "GPT-NeoX"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel outil de Microsoft intègre l'IA dans ses logiciels Office ?",
+            "reponses": [
+                "Clippy AI",
+                "Copilot",
+                "Gemini Suite",
+                "AutoGPT"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle avancée a rendu l'IA capable de générer des vidéos réalistes en 2024 ?",
+            "reponses": [
+                "Diffusion",
+                "MoCoGAN+",
+                "VideoGPT",
+                "DeepMind Pro"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel laboratoire est à l'origine de Claude ?",
+            "reponses": [
+                "DeepMind",
+                "OpenAI",
+                "Anthropic",
+                "Google Research"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel modèle permet une génération musicale IA avancée ?",
+            "reponses": [
+                "JukeBox AI",
+                "MuseNet",
+                "SoundStorm",
+                "DeepSymphony"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle IA peut aider à générer des vidéos à partir de texte ?",
+            "reponses": [
+                "TextToVid",
+                "Runway AI",
+                "DeepBlue Motion",
+                "Synthesia"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel modèle de langage excelle dans les dialogues réalistes avec peu de tokens ?",
+            "reponses": [
+                "Mistral 7B",
+                "GPT-3",
+                "Gemini Lite",
+                "BERT-base"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel est le principal défi éthique des IA en 2024 ?",
+            "reponses": [
+                "Accès public",
+                "Bias des données",
+                "Performance de calcul",
+                "Trop d'utilisation énergétique"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle avancée IA de 2024 permet de détecter les deepfakes ?",
+            "reponses": [
+                "DeepFakeShield",
+                "AI X-Ray",
+                "FakeCatcher",
+                "DeepDetect AI"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel géant du numérique collabore avec OpenAI pour l'intégration d'IA ?",
+            "reponses": [
+                "Meta",
+                "Microsoft",
+                "Apple",
+                "Amazon"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle IA est connue pour résumer les actualités efficacement ?",
+            "reponses": [
+                "NewsGPT",
+                "BERT-News",
+                "ChatGPT",
+                "Perplexity AI"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quel domaine a connu une forte automatisation grâce aux IA génératives ?",
+            "reponses": [
+                "Agriculture",
+                "Création de contenu",
+                "Logistique",
+                "Sécurité IT"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle entreprise est pionnière dans l'IA quantique ?",
+            "reponses": [
+                "IBM",
+                "Google",
+                "DeepMind",
+                "Microsoft"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel modèle permet de générer des images réalistes à partir de texte ?",
+            "reponses": [
+                "GPT-Paint",
+                "DALL·E 3",
+                "Vision-GAN",
+                "MidJourney"
+            ],
+            "bonne_reponse": 1
+        }
+    ],
+    "Devops": [
+        {
+            "question": "Quelle commande Git permet de cloner un dépôt distant ?",
+            "reponses": [
+                "git push",
+                "git pull",
+                "git clone",
+                "git fork"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel fichier est utilisé pour ignorer certains fichiers dans Git ?",
+            "reponses": [
+                "gitignore.json",
+                ".ignore",
+                ".gitignore",
+                "ignore.txt"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande Git est utilisée pour créer une nouvelle branche ?",
+            "reponses": [
+                "git checkout",
+                "git branch",
+                "git switch",
+                "git merge"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle plateforme est utilisée pour héberger des dépôts Git ?",
+            "reponses": [
+                "GitLab",
+                "Subversion",
+                "DockerHub",
+                "Jenkins"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande envoie des modifications locales vers le dépôt distant ?",
+            "reponses": [
+                "git pull",
+                "git merge",
+                "git commit",
+                "git push"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quelle commande Git permet d'afficher l'historique des commits ?",
+            "reponses": [
+                "git history",
+                "git log",
+                "git status",
+                "git diff"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quel outil est principalement utilisé pour l'intégration continue (CI/CD) ?",
+            "reponses": [
+                "Docker",
+                "Jenkins",
+                "GitHub Actions",
+                "Ansible"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande permet de vérifier l'état de la branche actuelle ?",
+            "reponses": [
+                "git diff",
+                "git status",
+                "git check",
+                "git log"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Que signifie CI/CD ?",
+            "reponses": [
+                "Code Iteration/Deploy",
+                "Continuous Integration/Continuous Deployment",
+                "Compile & Integrate/Code Deploy",
+                "Code Init/Develop"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle commande Git permet de fusionner une branche dans la branche active ?",
+            "reponses": [
+                "git merge",
+                "git join",
+                "git combine",
+                "git switch"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle plateforme propose des GitHub Actions ?",
+            "reponses": [
+                "GitLab",
+                "Bitbucket",
+                "GitHub",
+                "Jenkins"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande permet de récupérer les mises à jour du dépôt distant ?",
+            "reponses": [
+                "git fetch",
+                "git clone",
+                "git pull",
+                "git merge"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel outil est utilisé pour orchestrer les conteneurs ?",
+            "reponses": [
+                "Docker",
+                "Jenkins",
+                "Git",
+                "Kubernetes"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quelle commande affiche les différences entre fichiers locaux et versionnés ?",
+            "reponses": [
+                "git check",
+                "git log",
+                "git diff",
+                "git status"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel outil permet d'automatiser la configuration d'infrastructures ?",
+            "reponses": [
+                "Docker",
+                "Ansible",
+                "Git",
+                "Terraform"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Quelle plateforme Git propose des pipelines pour CI/CD ?",
+            "reponses": [
+                "Jenkins",
+                "GitHub",
+                "GitLab",
+                "Travis"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Comment annuler les modifications locales non encore commit ?",
+            "reponses": [
+                "git reset",
+                "git revert",
+                "git checkout --",
+                "git rm"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quelle commande permet de configurer le nom de l'utilisateur Git ?",
+            "reponses": [
+                "git set user",
+                "git username",
+                "git config user.name",
+                "git init"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel est l'avantage principal de Git par rapport à SVN ?",
+            "reponses": [
+                "Travail hors ligne possible",
+                "Interface utilisateur graphique",
+                "Centralisation des versions",
+                "Meilleure sécurité"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quelle commande est utilisée pour ajouter des fichiers au prochain commit ?",
+            "reponses": [
+                "git save",
+                "git push",
+                "git add",
+                "git commit"
+            ],
+            "bonne_reponse": 2
+        }
+    ],
+    "Personnalité de l'IA": [
+        {
+            "question": "Qui est considéré comme le père de l'intelligence artificielle ?",
+            "reponses": [
+                "Geoffrey Hinton",
+                "Alan Turing",
+                "John McCarthy",
+                "Marvin Minsky"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel chercheur est à l'origine de la création du test de Turing ?",
+            "reponses": [
+                "Claude Shannon",
+                "Geoffrey Hinton",
+                "Alan Turing",
+                "John McCarthy"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Qui a co-créé le concept d'intelligence artificielle en 1956 à Dartmouth ?",
+            "reponses": [
+                "Marvin Minsky",
+                "Geoffrey Hinton",
+                "Yann LeCun",
+                "John McCarthy"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Qui a développé l'algorithme de rétropropagation dans les réseaux neuronaux ?",
+            "reponses": [
+                "Yann LeCun",
+                "Geoffrey Hinton",
+                "Michael Jordan",
+                "Andrew Ng"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui est le co-fondateur de DeepMind et a contribué à la création de AlphaGo ?",
+            "reponses": [
+                "Elon Musk",
+                "Jeff Dean",
+                "Demis Hassabis",
+                "Andrew Ng"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel chercheur a mis au point le concept de 'convolutionnal neural networks' ?",
+            "reponses": [
+                "Yann LeCun",
+                "Andrew Ng",
+                "Geoffrey Hinton",
+                "Marvin Minsky"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Qui est l'un des pionniers de l'apprentissage profond (deep learning) et a travaillé sur les réseaux neuronaux ?",
+            "reponses": [
+                "Demis Hassabis",
+                "Geoffrey Hinton",
+                "Yann LeCun",
+                "Alan Turing"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel scientifique est connu pour ses recherches sur l'IA et a créé le concept de l'IA 'renforcée' ?",
+            "reponses": [
+                "Andrew Ng",
+                "Richard Sutton",
+                "John McCarthy",
+                "Geoffrey Hinton"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui a fondé OpenAI, l'organisation de recherche en IA ?",
+            "reponses": [
+                "Mark Zuckerberg",
+                "Elon Musk",
+                "Sundar Pichai",
+                "Jeff Bezos"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui a introduit l'algorithme de 'Random Forest' ?",
+            "reponses": [
+                "Geoffrey Hinton",
+                "Judea Pearl",
+                "Leo Breiman",
+                "Michael Jordan"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Qui est reconnu pour ses travaux sur les machines à vecteurs de support (SVM) ?",
+            "reponses": [
+                "Vladimir Vapnik",
+                "Geoffrey Hinton",
+                "Yann LeCun",
+                "Andrew Ng"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Quel chercheur a créé l'un des premiers agents autonomes, qui a battu des champions humains dans le jeu de Go ?",
+            "reponses": [
+                "Geoffrey Hinton",
+                "Marvin Minsky",
+                "Alan Turing",
+                "Demis Hassabis"
+            ],
+            "bonne_reponse": 3
+        },
+        {
+            "question": "Quel chercheur a co-écrit l'un des premiers livres sur les réseaux neuronaux ?",
+            "reponses": [
+                "Yann LeCun",
+                "Geoffrey Hinton",
+                "Andrew Ng",
+                "Marvin Minsky"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui a développé le concept de 'machine learning' comme discipline principale en IA ?",
+            "reponses": [
+                "Arthur Samuel",
+                "Herbert Simon",
+                "Geoffrey Hinton",
+                "Demis Hassabis"
+            ],
+            "bonne_reponse": 0
+        },
+        {
+            "question": "Qui a introduit le concept de 'réseaux de neurones convolutionnels' ?",
+            "reponses": [
+                "John McCarthy",
+                "Yann LeCun",
+                "Geoffrey Hinton",
+                "Andrew Ng"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui est connu pour ses recherches sur l'IA et a été directeur de l'IA chez Google ?",
+            "reponses": [
+                "Sundar Pichai",
+                "Yann LeCun",
+                "Jeff Dean",
+                "Elon Musk"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel scientifique a contribué à la création du concept de 'rationalité' dans les systèmes intelligents ?",
+            "reponses": [
+                "John McCarthy",
+                "Herbert Simon",
+                "Marvin Minsky",
+                "Geoffrey Hinton"
+            ],
+            "bonne_reponse": 1
+        },
+        {
+            "question": "Qui est l'un des fondateurs de l'apprentissage supervisé et de l'algorithme de 'boosting' ?",
+            "reponses": [
+                "Michael Jordan",
+                "Andrew Ng",
+                "Robert Schapire",
+                "Geoffrey Hinton"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Qui a développé la première application commerciale d'intelligence artificielle avec Watson ?",
+            "reponses": [
+                "Amazon",
+                "Google",
+                "IBM",
+                "Microsoft"
+            ],
+            "bonne_reponse": 2
+        },
+        {
+            "question": "Quel chercheur a participé à la création de l'algorithme de 'Deep Q-Learning' ?",
+            "reponses": [
+                "Volodymyr Mnih",
+                "Demis Hassabis",
+                "Yann LeCun",
+                "Andrew Ng"
+            ],
+            "bonne_reponse": 0
+        }
+    ]
+}
