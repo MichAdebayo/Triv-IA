@@ -1,6 +1,7 @@
 
 from case import Case
 import random
+from utils import code_couleur
 
 
 class Plateau:
@@ -12,7 +13,7 @@ class Plateau:
 
 
     def creation_cases(self):
-        types_possibles = ['Camembert', 'Camembert']
+        types_possibles = ['Camembert', 'Normale']
         categories = ['Base de données', 'Python', 'Unix', 'Actu IA', 'Devops',"Personnalité de l'IA"]
 
 
@@ -257,8 +258,15 @@ class Plateau:
                         print(emojis_ronds[5], end = '    ')
                     else:
                         print(emojis[5], end = '    ')
-
-
+                        
+        print('\n\n\n==========================================\n\n')
+        print( 
+            f'{code_couleur[0][0]} = {code_couleur[0][1]}, '
+            f'{code_couleur[1][0]} = {code_couleur[1][1]}, '
+            f'{code_couleur[2][0]} = {code_couleur[2][1]}, '
+            f'{code_couleur[3][0]} = {code_couleur[3][1]}, '
+            f'{code_couleur[4][0]} = {code_couleur[4][1]}, '
+            f'{code_couleur[5][0]} = {code_couleur[5][1]}')
 
 
 

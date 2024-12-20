@@ -3,6 +3,8 @@ import random
 import time
 from joueur import Joueur
 import json
+from utils import clear_console, clear_partial_ansi, dice_asci
+
 
 class Jeu:
     def __init__(self):
@@ -42,7 +44,7 @@ class Jeu:
 
     def lancer_manche(self):
         """Exécute une manche du jeu."""
-
+        clear_console()
         joueur = self.joueurs[self.tour_actuel][0]
         element_joueurs = self.joueurs[self.tour_actuel]
 
@@ -56,9 +58,19 @@ class Jeu:
         time.sleep(1)
 
         # Lancer le dé
+
+        print('')
+        for i in range(11):
+            print(dice_asci[i%5])
+            time.sleep(0.2)
+            clear_partial_ansi(6)
+            clear_partial_ansi(1)
+
+
+        print('\n\n','='*25)
         resultat = joueur.lancer_de()
-        print(f"\n\n\n{element_joueurs[1]} {joueur.nom} a lancé le 🎲 et a obtenu : {resultat}")
-        time.sleep(1)
+        print(f"{element_joueurs[1]} {joueur.nom} a lancé le 🎲 et a obtenu : {resultat} {dice_asci[resultat - 1]}")
+        
 
 
         # Déplacer le joueur
@@ -79,19 +91,21 @@ class Jeu:
             else:
                 choix_mouvement == 'ar'
                 joueur.position -= resultat
+        
 
         joueur.position = joueur.position % (len(self.plateau.cases))
+        clear_console()
         self.plateau.creer_plateau(element_joueurs)
 
 
-            
         print(f"\n\n{element_joueurs[1]} {joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
 
 
         if self.poser(joueur.position):
-            print(f"\n✅ Bonne réponse ! 🎉")
-            print(len(joueur.camemberts))
-            if case.categorie not in joueur.camemberts and case.type == 'Camembert':
+            print(f"\n✅ Bonne réponse ! 🎉\n\n")
+            time.sleep(1)        
+
+            if case.categorie not in joueur.camemberts and self.plateau.cases[joueur.position].type == 'Camembert':
                 joueur.ajouter_camembert(self.plateau.cases[joueur.position].categorie)
 
                 # Vérifier si le joueur a gagné
@@ -106,7 +120,6 @@ class Jeu:
 
                 else:   
                     # Si bonne réponse, rejouer
-                    print(len(joueur.camemberts))
                     time.sleep(1)
                     print(f"\n{element_joueurs[1]} {joueur.nom} rejoue !")
                     time.sleep(1)
@@ -116,6 +129,7 @@ class Jeu:
         else:
             time.sleep(1)
             print(f"\n❌ Mauvaise réponse. 😞 ")
+            time.sleep(1)
     
             self.tour_actuel = (self.tour_actuel + 1 ) % len(self.joueurs)
             return False
@@ -154,9 +168,3 @@ class Jeu:
             
 
 
-if __name__ == '__main__':
-    plateau_du_jeu = Plateau()
-    plateau_du_jeu.creation_cases()
-    # plateau_du_jeu.creer_plateau()
-    partie = Jeu()
-    partie.lancer_jeu()
