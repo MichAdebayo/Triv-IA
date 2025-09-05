@@ -98,6 +98,25 @@ class Jeu:
         self.tour_actuel = 0
         self.plateau = Plateau()
 
+    def charger_questions(self, chemin_fichier):
+        """Charge les questions depuis un fichier JSON et les organise par thème."""
+        try:
+            with open(chemin_fichier, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for couleur, questions in data.items():
+                self.questions_par_theme[couleur] = [
+                    Questions(
+                        q["question"],
+                        q["reponses"],
+                        q["bonne_reponse_index"],
+                        q.get("categorie", couleur)
+                    )
+                    for q in questions
+                ]
+        except Exception as e:
+            print(f"Erreur lors du chargement des questions : {e}")
+            self.questions_par_theme = {}
+
     def initialiser_joueurs(self):
         nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
 
