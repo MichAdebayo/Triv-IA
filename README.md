@@ -1,7 +1,7 @@
 # Triv-IA
 
 <p align="center">
-    <img width=800px src="https://github.com/user-attachments/assets/62fffa4a-f0fc-488c-9807-84da16b2a906"/>
+    <img width=800px src="https://github.com/user-attachments/assets/7a9a313e-4e60-48da-8915-fc465283fe4f"/>
 </p>
 
 Triv-IA is a command-line trivia game inspired by Trivial Pursuit, designed for multiple players. The game tests your knowledge in various categories related to IT, AI, and more, with a fun board and emoji avatars.
