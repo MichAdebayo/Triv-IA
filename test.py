@@ -2,11 +2,12 @@ import random
 import json
 
 class Joueur:
-    def __init__(self, nom, age):
+    def __init__(self, nom, age, emoji=None):
         self.nom = nom
         self.age = age
         self.camemberts = set()
         self.position = 0
+        self.emoji = emoji
 
     def ajouter_camembert(self, couleur):
         """Ajoute un camembert de couleur spécifique au joueur."""
@@ -118,7 +119,10 @@ class Jeu:
             self.questions_par_theme = {}
 
     def initialiser_joueurs(self):
-        nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
+        nb_joueurs = input('\n Veuillez saisir un nombre de joueur (max 6 joueurs)   ')
+        while not nb_joueurs.isdigit() or not (1 <= int(nb_joueurs) <= 6):
+            print("Entrée invalide. Réessayez.")
+            nb_joueurs = input('\n Veuillez saisir un nombre de joueur (max 6 joueurs)   ')
 
         animaux = [
             "🐱",  # Chat
@@ -129,31 +133,17 @@ class Jeu:
             "🐧"   # Pingouin
         ]
 
-
         for i in range(int(nb_joueurs)):
-
-            nb_joueurs = input('\n Veuillez saisir un nombre de joueur(max 6 joueurs)   ')
-
-            animaux = [
-                "🐱",  # Chat
-                "🐶",  # Chien
-                "🐻",  # Ours
-                "🐸",  # Grenouille
-                "🐯",  # Tigre
-                "🐧"   # Pingouin
-            ]
-
-
-            for i in range(int(nb_joueurs)):
-
-                nom_du_joueur = input('saisissez le nom du joueur   ')
-
+            nom_du_joueur = input('saisissez le nom du joueur   ')
+            age_joueur = input(f"quel est l'age de {nom_du_joueur} ?    ")
+            while not age_joueur.isdigit() or int(age_joueur) <= 0:
+                print("Entrée invalide. Réessayez.")
                 age_joueur = input(f"quel est l'age de {nom_du_joueur} ?    ")
-
-                emoji_joueur = random.choice(animaux)
-                animaux.remove(emoji_joueur)
-                print(f"vous êtes l'emoji {emoji_joueur}")
-                self.joueurs.append([nom_du_joueur, age_joueur, emoji_joueur])
+            emoji_joueur = random.choice(animaux)
+            animaux.remove(emoji_joueur)
+            print(f"vous êtes l'emoji {emoji_joueur}")
+            joueur = Joueur(nom_du_joueur, int(age_joueur), emoji_joueur)
+            self.joueurs.append(joueur)
 
     def determiner_premier_joueur(self):
         """Détermine le premier joueur (le plus jeune)."""
